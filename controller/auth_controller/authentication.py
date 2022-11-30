@@ -327,8 +327,8 @@ async def logout(request: Request):
     """
     try:
         msg = "You have been logged out"
-        # response =  RedirectResponse(url="/auth/", status_code=status.HTTP_302_FOUND, headers={"msg": msg})
-        response =  templates.TemplateResponse("login.html", {"request": request, "msg": msg})
+        response =  RedirectResponse(url="/auth/", status_code=status.HTTP_302_FOUND, headers={"msg": msg})
+        # response =  templates.TemplateResponse("login.html", {"request": request, "msg": msg})
         response.delete_cookie(key="access_token")
         return response
     except Exception as e:

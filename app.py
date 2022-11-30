@@ -19,7 +19,7 @@ templates = Jinja2Templates(directory= os.path.join(os.getcwd(), "templates"))
 @app.get("/")
 def read_root():
     try:
-        return RedirectResponse(url="/application", status_code=status.HTTP_302_FOUND)
+        return RedirectResponse(url="/auth", status_code=status.HTTP_302_FOUND)
     except Exception as e:
         return templates.TemplateResponse("error.html", status_code=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
